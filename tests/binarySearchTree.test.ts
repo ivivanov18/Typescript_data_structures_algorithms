@@ -55,8 +55,48 @@ describe("BINARY SEARCH TREE", () => {
 
     describe("Should use find", () => {
         const bst = new BinarySearchTree();
-        it("Should return false if tree is empty", () => {
+        it("Should return null if tree is empty", () => {
             expect(bst.find(10)).to.be.null;
         });
-    })
+    });
+
+    describe("Should use breadFirstSearch BFS", () => {
+        const bst = new BinarySearchTree();
+
+        it("Should return empty array if bst is empty", () => {
+            expect(bst.breadFirstSearch()).to.be.of.length(0);
+        });
+
+        it("Should return the exact array in the right order", () => {
+            bst.insert(10).insert(5).insert(6).insert(15).insert(2).insert(7);
+            expect(bst.breadFirstSearch()).to.eql([10, 5, 15, 2, 6, 7]);
+        })
+    });
+
+    describe("Should use depthSearchFirstPreOrder", () => {
+        const bstD = new BinarySearchTree();
+
+        it("Should return empty array if bst is empty", () => {
+            expect(bstD.depthSearchFirstPreOrder()).to.be.of.length(0);
+        });
+
+        it("Should return the exact array in the right order", () => {
+            bstD.insert(10).insert(5).insert(6).insert(15).insert(2).insert(7);
+            expect(bstD.depthSearchFirstPreOrder()).to.eql([10, 5, 2, 6, 7, 15]);
+        })
+    });
+
+    describe("Should use depthSearchFirstPostOrder", () => {
+        const bstPO = new BinarySearchTree();
+
+        it("Should return empty array if bst is empty", () => {
+            expect(bstPO.depthSearchFirstPostOrder()).to.be.of.length(0);
+        });
+
+        it("Should return the exact array in the right order", () => {
+            bstPO.insert(10).insert(8).insert(3).insert(20).insert(6).insert(15);
+            expect(bstPO.depthSearchFirstPostOrder()).to.eql([3, 8, 6, 20, 15, 10]);
+        })
+    });
+
 })
