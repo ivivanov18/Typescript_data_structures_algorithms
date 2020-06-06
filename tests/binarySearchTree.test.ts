@@ -128,4 +128,32 @@ describe("BINARY SEARCH TREE", () => {
       ]);
     });
   });
+
+  describe("Should use depthSearchFirstInOrder", () => {
+    const bstIO = new BinarySearchTree();
+
+    it("Should return empty array if bst is empty", () => {
+      expect(bstIO.depthSearchFirstInOrder()).to.be.of.length(0);
+    });
+
+    it("Should return the exact array in the right order", () => {
+      bstIO
+        .insert(20)
+        .insert(15)
+        .insert(25)
+        .insert(13)
+        .insert(16)
+        .insert(22)
+        .insert(27);
+      expect(bstIO.depthSearchFirstInOrder()).to.eql([
+        13,
+        15,
+        16,
+        20,
+        22,
+        25,
+        27,
+      ]);
+    });
+  });
 });

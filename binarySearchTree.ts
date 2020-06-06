@@ -180,7 +180,36 @@ export class BinarySearchTree {
     function traverse(treeNode: TreeNode) {
       if (treeNode.left) traverse(treeNode.left);
       if (treeNode.right) traverse(treeNode.right);
-      visited.push(treeNode!.value);
+      visited.push(treeNode.value);
+    }
+  }
+
+  /**
+   * In this traversal, a node is going to visited only when his left child has
+   * been visited
+   * Example:
+   *             20
+   *      15           25
+   *   13   16     22     27
+   * The returned order [13, 15, 16, 20, 22, 25, 27]
+   */
+  depthSearchFirstInOrder(): Array<number> {
+    const visited = Array<number>();
+    let current = this.root;
+    if (current != null) {
+      traverse(current!);
+    }
+
+    return visited;
+
+    /**
+     * Helper function that checks whether left/right node exists and traverse them also
+     * @param treeNode
+     */
+    function traverse(treeNode: TreeNode) {
+      if (treeNode.left) traverse(treeNode.left);
+      visited.push(treeNode.value);
+      if (treeNode.right) traverse(treeNode.right);
     }
   }
 }
