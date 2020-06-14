@@ -1,5 +1,5 @@
-import { BinarySearchTree } from "../binarySearchTree";
 import { expect } from "chai";
+import { BinarySearchTree } from "../binarySearchTree";
 
 describe("BINARY SEARCH TREE", () => {
   it("Should create a binary search tree with root node equal null", () => {
